@@ -8,10 +8,10 @@ if __name__ == "__main__":
     died = False
     ballSpeed = 0.5
 
-
     paddle = Paddle(screen)
     ball = Ball(screen, ballSpeed)
     score = 0
+
 
     def end():
         ball.y_speed = 0
@@ -19,13 +19,16 @@ if __name__ == "__main__":
         paddle.speed = 0
         return True
 
+
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: running = False
 
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_LEFT]: paddle.left()
-        elif keys[pygame.K_RIGHT]: paddle.right()
+        if keys[pygame.K_LEFT]:
+            paddle.left()
+        elif keys[pygame.K_RIGHT]:
+            paddle.right()
 
         if died:
             windowColor = (255, 0, 0)
